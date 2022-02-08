@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Copyright ©  All rights reserved.
+ * See COPYING.txt for license details.
+ */ 
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magexopos_grid_data_source" xsi:type="string">Magexo\Pos\Model\ResourceModel\Magexopos\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magexo\Pos\Model\ResourceModel\Magexopos\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">pos_entity</argument>
+            <argument name="eventPrefix" xsi:type="string">magexopos_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">magexopos_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Magexo\Pos\Model\ResourceModel\Magexopos</argument>
+        </arguments>
+    </type>
+    <virtualType name="MagexoposGridPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="SampleGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Magexo\Pos\Model\ResourceModel\Magexopos\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">MagexoposGridPool</argument>
+        </arguments>
+    </virtualType>
+   <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="insert" xsi:type="object">Magexo\Pos\Console\Command\Insert</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

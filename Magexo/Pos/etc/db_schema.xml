@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright ©  All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="pos_entity" resource="default" engine="innodb" comment="Magexopos Entity">
+        <column xsi:type="int" name="pos_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Pos ID"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Name"/>
+        <column xsi:type="varchar" name="address" nullable="true" length="255" comment="Address"/>
+        <column xsi:type="smallint" name="is_taxable" padding="5" unsigned="true" nullable="true" identity="false"
+                comment="Is Pos taxable"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="pos_id"/>
+        </constraint>
+    </table>
+</schema>

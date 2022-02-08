@@ -1,0 +1,15 @@
+{
+    "pos_entity": {
+        "column": {
+            "pos_id": true,
+            "name": true,
+            "is_taxable": true,
+            "created_at": true,
+            "updated_at": true,
+            "address": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

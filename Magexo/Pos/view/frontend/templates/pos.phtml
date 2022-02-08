@@ -1,0 +1,26 @@
+<?php
+    $collection = $this->getPosCollection();
+?>
+<table class="data table" id="pos-data-table">
+    <caption class="table-caption">Magexo Pos Data</caption>
+    <thead>
+        <tr>
+            <th scope="col" class="col name">Name</th>
+            <th scope="col" class="col address">Address</th>
+            <th scope="col" class="col is_taxable">Is Taxable</th>
+            <th scope="col" class="col created_at">Created At</th>
+  
+        </tr>
+    </thead>
+    <tbody>
+   
+        <?php foreach ($collection as $key => $data): ?>
+            <tr>
+                <td data-th="Title" class="col name"><?php echo $data->getName(); ?></td>
+                <td data-th="Author" class="col address"><?php echo $data->getAddress(); ?></td>
+                <td data-th="Content" class="col is_taxable"><?php echo $data->getIsTaxable(); ?></td>
+                <td data-th="Date" class="col created_at"><?php echo $data->getCreatedAt(); ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
