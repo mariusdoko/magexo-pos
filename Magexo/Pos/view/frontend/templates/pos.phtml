@@ -16,9 +16,9 @@
    
         <?php foreach ($collection as $key => $data): ?>
             <tr>
-                <td data-th="Title" class="col name"><?php echo $data->getName(); ?></td>
-                <td data-th="Author" class="col address"><?php echo $data->getAddress(); ?></td>
-                <td data-th="Content" class="col is_taxable"><?php echo $data->getIsTaxable(); ?></td>
+                <td data-th="Name" class="col name"><?php echo $data->getName(); ?></td>
+                <td data-th="Address" class="col address"><?php echo $data->getAddress(); ?></td>
+                <td data-th="IsTaxable" class="col is_taxable"><?php echo $data->getIsTaxable(); ?></td>
                 <td data-th="Date" class="col created_at"><?php echo $data->getCreatedAt(); ?></td>
             </tr>
         <?php endforeach; ?>
